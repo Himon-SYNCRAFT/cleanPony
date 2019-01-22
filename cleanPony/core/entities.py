@@ -1,12 +1,26 @@
 from __future__ import annotations
-from dataclasses import dataclass, field
-from typing import List, Optional
+from dataclasses import dataclass, field, asdict
+from typing import List, Optional, Dict
 from datetime import datetime, timedelta
 from decimal import Decimal
+from abc import ABCMeta
+
+
+@dataclass(init=False)
+class Entity(metaclass=ABCMeta):
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def to_dict(self) -> Dict:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, data: Dict):
+        return cls(**data)
 
 
 @dataclass
-class AllegroAccount:
+class AllegroAccount(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
     hash_password: Optional[str] = field(default=None, repr=False)
@@ -29,7 +43,7 @@ class AllegroAccount:
 
 
 @dataclass
-class Category:
+class Category(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
     parent: Optional[Category] = None
@@ -46,7 +60,7 @@ class Category:
 
 
 @dataclass
-class Image:
+class Image(Entity):
     id: Optional[int] = None
     url: Optional[str] = None
     allegro_url: Optional[str] = None
@@ -54,38 +68,38 @@ class Image:
 
 
 @dataclass
-class DeliveryAllegroData:
+class DeliveryAllegroData(Entity):
     id: Optional[int] = None
     delivery: Optional[Delivery] = None
     account: Optional[AllegroAccount] = None
 
 
 @dataclass
-class ImpliedWarranty:
+class ImpliedWarranty(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
 
 
 @dataclass
-class ReturnPolicy:
+class ReturnPolicy(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
 
 
 @dataclass
-class Warranty:
+class Warranty(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
 
 
 @dataclass
-class Title:
+class Title(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
 
 
 @dataclass
-class Product:
+class Product(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
     sku: Optional[str] = None
@@ -122,7 +136,7 @@ class Product:
 
 
 @dataclass
-class Attribute:
+class Attribute(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
     type: Optional[str] = None
@@ -151,21 +165,21 @@ class Attribute:
 
 
 @dataclass
-class AttributeValue:
+class AttributeValue(Entity):
     id: Optional[int] = None
     value: Optional[str] = None
     attribute: Optional[Attribute] = None
 
 
 @dataclass
-class DeliveryOptionType:
+class DeliveryOptionType(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
     is_active: bool = True
 
 
 @dataclass
-class DeliveryOption:
+class DeliveryOption(Entity):
     id: Optional[int] = None
     delivery_option_type: Optional[DeliveryOptionType] = None
     delivery: Optional[Delivery] = None
@@ -175,7 +189,7 @@ class DeliveryOption:
 
 
 @dataclass
-class Delivery:
+class Delivery(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
     is_updated: bool = None
@@ -184,7 +198,7 @@ class Delivery:
 
 
 @dataclass
-class StaticBlock:
+class StaticBlock(Entity):
     id: Optional[int] = None
     description_item_type: Optional[DescriptionItemType] = None
     header: Optional[str] = None
@@ -194,13 +208,13 @@ class StaticBlock:
 
 
 @dataclass
-class DescriptionItemType:
+class DescriptionItemType(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
 
 
 @dataclass
-class DescriptionItem:
+class DescriptionItem(Entity):
     id: Optional[int] = None
     header: Optional[str] = None
     text: Optional[str] = None
@@ -215,32 +229,32 @@ class DescriptionItem:
 
 
 @dataclass
-class BundleItem:
+class BundleItem(Entity):
     owner: Optional[Product] = None
     item: Optional[Product] = None
     quantity: int = 1
 
 
 @dataclass
-class AuctionType:
+class AuctionType(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
 
 
 @dataclass
-class Duration:
+class Duration(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
 
 
 @dataclass
-class Location:
+class Location(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
 
 
 @dataclass
-class Auction:
+class Auction(Entity):
     id: Optional[int] = None
     account: Optional[AllegroAccount] = None
     auction_number: Optional[int] = None
@@ -273,7 +287,7 @@ class Auction:
 
 
 @dataclass
-class VertoAttribute:
+class VertoAttribute(Entity):
     product: Optional[Product] = None
     definition_id: Optional[int] = None
     name: Optional[str] = None

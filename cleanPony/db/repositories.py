@@ -1,62 +1,87 @@
-from typing import List, Type, Optional
+from typing import Type, Set, List, Optional
+from pony.orm import db_session, flush
+
 from cleanPony.core import repositories
 from cleanPony.core.entities import Product
-from cleanPony.core.filter import Filter
+from cleanPony.core.filter import Filter, FilterType
 from cleanPony.core.repositories import Entity
 from cleanPony.db import models
-from pony.orm import db_session, flush
-from operator import eq
 
 
 class CrudRepository(repositories.CrudRepository):
-    def __init__(self, model: Type[models.Entity], entity_type: Type[Entity]) -> None:
-        self._entity_type = entity_type
-        self._model = model
+    def __init__(self, model_cls: Type[models.Entity], entity_cls: Type[Entity]) -> None:
+        self._Entity = entity_cls
+        self._Model = model_cls
 
     @db_session
     def get(self, entity_id: int) -> Entity:
-        model = self._model.get(id=entity_id)
-        return self._entity_type(**model.to_dict())
+        model = self._Model.get(id=entity_id)
+        return self._model_to_entity(model)
 
     @db_session
-    def find(self, filters: List[Filter], page: int = 1, page_size: int = 10) -> List[Entity]:
-        query = self._model.select()
+    def find(self, filters: Optional[Set[Filter]] = None, page: Optional[int] = 1, page_size: Optional[int] = 10) -> List[Entity]:
+        query = self._Model.select()
 
-        for f in filters:
-            filter, operator, value = f.filter, f.operator, f.value
+        if filters is not None:
+            query = self._filter_query(query, filters)
 
-            if operator == 'eq':
-                query = query.filter(lambda e: getattr(e, filter) == value)
-            elif operator == 'lt':
-                query = query.filter(lambda e: getattr(e, filter) < value)
-            elif operator == 'le':
-                query = query.filter(lambda e: getattr(e, filter) <= value)
-            elif operator == 'ne':
-                query = query.filter(lambda e: getattr(e, filter) != value)
-            elif operator == 'ge':
-                query = query.filter(lambda e: getattr(e, filter) >= value)
-            elif operator == 'gt':
-                query = query.filter(lambda e: getattr(e, filter) > value)
-            elif operator == 'in':
-                query = query.filter(lambda e: getattr(e, filter) in value)
-            elif operator == 'notin':
-                query = query.filter(lambda e: getattr(e, filter) not in value)
-            elif operator == 'like':
-                query = query.filter(lambda e: getattr(e, filter) in value)
+        if page_size is not None and page is not None:
+            query = query.page(page, page_size)
 
-        return list(query)
+        return [self._model_to_entity(item) for item in list(query)]
 
     @db_session
-    def all(self) -> List[Entity]:
-        return list(self._model.select())
+    def find_all(self, filters: Set[Filter]) -> List[Entity]:
+        return self.find(filters, page=None, page_size=None)
+
+    @db_session
+    def get_all(self) -> List[Entity]:
+        return self.find(page=None, page_size=None)
+
+    @db_session
+    def get_list(self, page: int = 1, page_size: int = 10):
+        return self.find(page=page, page_size=page_size)
 
     @db_session
     def save(self, entity: Entity) -> Entity:
-        model = self._model(**entity.asdict())
+        model = self._Model(**entity.to_dict())
         flush()
-        return model
+        return self._model_to_entity(model)
+
+    @db_session
+    def delete(self, entity_id: int) -> None:
+        self._Model.get(id=entity_id).delete()
+
+    def _model_to_entity(self, model: models.Entity):
+        return self._Entity.from_dict(model.as_dict())
+
+    @staticmethod
+    def _filter_query(query, filters: Set[Filter]):
+        for f in filters:
+            attribute, operator, value = f.filter, f.operator, f.value
+
+            if operator == FilterType.EQ:
+                query = query.filter(lambda e: getattr(e, attribute) == value)
+            elif operator == FilterType.LT:
+                query = query.filter(lambda e: getattr(e, attribute) < value)
+            elif operator == FilterType.LE:
+                query = query.filter(lambda e: getattr(e, attribute) <= value)
+            elif operator == FilterType.NE:
+                query = query.filter(lambda e: getattr(e, attribute) != value)
+            elif operator == FilterType.GE:
+                query = query.filter(lambda e: getattr(e, attribute) >= value)
+            elif operator == FilterType.GT:
+                query = query.filter(lambda e: getattr(e, attribute) > value)
+            elif operator == FilterType.IN:
+                query = query.filter(lambda e: getattr(e, attribute) in value)
+            elif operator == FilterType.NOT_IN:
+                query = query.filter(lambda e: getattr(e, attribute) not in value)
+            elif operator == FilterType.LIKE:
+                query = query.filter(lambda e: value in getattr(e, attribute))
+
+        return query
 
 
 class ProductRepository(CrudRepository):
     def __init__(self):
-        super(ProductRepository, self).__init__(model=models.Product, entity_type=Product)
+        super(ProductRepository, self).__init__(model_cls=models.Product, entity_cls=Product)

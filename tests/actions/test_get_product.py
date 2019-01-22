@@ -1,6 +1,7 @@
-from cleanPony.core.actions import GetProduct, GetProductRequest
-from cleanPony.core.entities import Product
 from unittest.mock import Mock
+
+from cleanPony.core.actions.product.get_product import GetProduct, GetProductRequest
+from cleanPony.core.entities import Product
 
 
 def test_get_product():
@@ -11,6 +12,6 @@ def test_get_product():
 
     request = GetProductRequest(product_id)
     action = GetProduct(product_repository)
-    product = action.execute(request)
+    product = action.execute(request).data
 
-    assert product.id == product_id
+    assert product['id'] == product_id

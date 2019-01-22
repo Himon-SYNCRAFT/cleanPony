@@ -1,23 +1,29 @@
-from typing import Generic, TypeVar, List
+from typing import List, Set, TypeVar
 from cleanPony.core.filter import Filter
+from cleanPony.core.entities import Entity
 
 
-Entity = TypeVar('Entity')
+E = TypeVar('E', bound=Entity)
 
 
-class CrudRepository(Generic[Entity]):
-    @staticmethod
-    def get(entity_id: int) -> Entity:
+class CrudRepository:
+    def get(self, entity_id: int) -> E:
         raise NotImplementedError
 
-    @staticmethod
-    def find(filters: List[Filter], page: int = 1, size: int = 10) -> List[Entity]:
+    def find(self, filters: Set[Filter], page: int = 1, size: int = 10) -> List[E]:
         raise NotImplementedError
 
-    @staticmethod
-    def all() -> List[Entity]:
+    def find_all(self, filters: Set[Filter]) -> List[E]:
         raise NotImplementedError
 
-    @staticmethod
-    def save(entity: Entity) -> Entity:
+    def get_list(self, page: int = 1, page_size: int = 10):
+        raise NotImplementedError
+
+    def get_all(self) -> List[E]:
+        raise NotImplementedError
+
+    def delete(self, entity_id: int) -> None:
+        raise NotImplementedError
+
+    def save(self, entity: E) -> E:
         raise NotImplementedError
