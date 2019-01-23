@@ -110,14 +110,14 @@ class Product(Entity):
     is_bundle: bool = False
     is_updated: bool = False
     delivery: Optional[Delivery] = None
-    attributes: Optional[List[AttributeValue]] = field(default_factory=list)
-    auctions: Optional[List[Auction]] = field(default_factory=list)
-    bundle_items: Optional[List[BundleItem]] = field(default_factory=list)
-    categories: Optional[List[Category]] = field(default_factory=list)
-    description: Optional[List[DescriptionItem]] = field(default_factory=list)
-    images: Optional[List[Image]] = field(default_factory=list)
+    attributes: List[AttributeValue] = field(default_factory=list)
+    auctions: List[Auction] = field(default_factory=list)
+    bundle_items: List[BundleItem] = field(default_factory=list)
+    categories: List[Category] = field(default_factory=list)
+    description: List[DescriptionItem] = field(default_factory=list)
+    images: List[Image] = field(default_factory=list)
     titles: List[Title] = field(default_factory=list)
-    verto_attributes: Optional[List[VertoAttribute]] = field(default_factory=list)
+    verto_attributes: List[VertoAttribute] = field(default_factory=list)
 
     @property
     def sku_2(self):
@@ -192,7 +192,7 @@ class DeliveryOption(Entity):
 class Delivery(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
-    is_updated: bool = None
+    is_updated: bool = False
     delivery_options: List[DeliveryOption] = field(default_factory=list)
     allegro_data: List[DeliveryAllegroData] = field(default_factory=list)
 
@@ -259,7 +259,7 @@ class Auction(Entity):
     account: Optional[AllegroAccount] = None
     auction_number: Optional[int] = None
     auction_type: Optional[AuctionType] = None
-    category: Optional[category] = None
+    category: Optional[Category] = None
     date: Optional[datetime] = datetime.today()
     duration: Optional[Duration] = None
     is_active: bool = False

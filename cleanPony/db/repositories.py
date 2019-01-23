@@ -6,6 +6,7 @@ from cleanPony.core.entities import Product
 from cleanPony.core.filter import Filter, FilterType
 from cleanPony.core.repositories import Entity
 from cleanPony.db import models
+from cleanPony.core.exceptions import NotFoundError
 
 
 class CrudRepository(repositories.CrudRepository):
@@ -16,6 +17,19 @@ class CrudRepository(repositories.CrudRepository):
     @db_session
     def get(self, entity_id: int) -> Entity:
         model = self._Model.get(id=entity_id)
+
+        if model is None:
+            raise NotFoundError(f'Not found {self._get_model_name()} with id {entity_id}')
+
+        return self._model_to_entity(model)
+
+    @db_session
+    def get_or_none(self, entity_id: int) -> Optional[Entity]:
+        model = self._Model.get(id=entity_id)
+
+        if model is None:
+            return None
+
         return self._model_to_entity(model)
 
     @db_session
@@ -54,6 +68,9 @@ class CrudRepository(repositories.CrudRepository):
 
     def _model_to_entity(self, model: models.Entity):
         return self._Entity.from_dict(model.as_dict())
+
+    def _get_model_name(self) -> str:
+        return self._Model.__qualname__
 
     @staticmethod
     def _filter_query(query, filters: Set[Filter]):

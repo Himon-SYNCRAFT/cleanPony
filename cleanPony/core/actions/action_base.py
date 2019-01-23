@@ -1,11 +1,13 @@
 from cleanPony.core.exceptions import NotFoundError, AllegroError, VertoError
 from cleanPony.core.response_error import ResponseError
 from cleanPony.core.response_base import ResponseBase
+from cleanPony.core.validator_base import ValidatorBase
+from typing import List
 
 
 class ActionBase:
     def __init__(self, *args, **kwargs) -> None:
-        self._validators = []
+        self._validators: List[ValidatorBase] = []
 
     def execute(self, request=None) -> ResponseBase:
         response = ResponseBase()

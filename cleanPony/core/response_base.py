@@ -9,10 +9,9 @@ class ResponseBase:
                  errors: Optional[List] = None):
         self._data = None
         self.data = data
+        self.errors: List = []
 
-        if errors is None:
-            self.errors = []
-        else:
+        if errors is not None:
             self.errors = errors
 
     @property

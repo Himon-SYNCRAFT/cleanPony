@@ -1,15 +1,16 @@
 from pony.orm import Database, Required, Set, PrimaryKey
+from typing import Any, Dict
 
 
 db = Database()
-Entity = db.Entity
+Entity: Any = db.Entity
 
 
-class ModelMixin(object):
-    def __init__(self, *args, **kwargs):
+class ModelMixin:
+    def __init__(self, *args, **kwargs) -> None:
         pass
 
-    def as_dict(self, related_objects=True):
+    def as_dict(self: Entity, related_objects=True) -> Dict:
         d = self.to_dict()
 
         if related_objects:

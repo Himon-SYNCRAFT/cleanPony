@@ -1,6 +1,7 @@
 from .exceptions import InvalidOperatorError
 from enum import Enum, unique
-from typing import Any
+from typing import Any, Set
+from dataclasses import dataclass
 
 
 @unique
@@ -16,28 +17,14 @@ class FilterType(Enum):
     LIKE: str = 'LIKE'
 
 
+@dataclass(frozen=True)
 class Filter:
-    allowed_operators = list(FilterType.__members__.values())
-    __slots__ = ['filter', 'operator', 'value']
+    value: Any
+    filter: str
+    operator: FilterType = FilterType.EQ
 
-    def __init__(self, filter: str, value: Any, operator: FilterType = FilterType.EQ):
-        if operator not in self.allowed_operators:
-            raise InvalidOperatorError(operator)
+    def __post_init__(self):
+        allowed_operators: Set[FilterType] = set(FilterType.__members__.values())
 
-        if operator in [FilterType.IN, FilterType.NOT_IN]:
-            operator = '{}_'.format(operator)
-        elif operator != FilterType.LIKE:
-            operator = '__{}__'.format(operator)
-
-        super(Filter, self).__setattr__('filter', filter)
-        super(Filter, self).__setattr__('operator', operator)
-        super(Filter, self).__setattr__('value', value)
-
-    def __hash__(self):
-        return hash((self.filter, self.operator, self.value))
-
-    def __eq__(self, other):
-        if other.__class__.__qualname__ is not self.__class__.__qualname__:
-            return NotImplemented
-        return (self.filter, self.operator, self.value) == (
-            other.filter, other.operator, other.value)
+        if self.operator not in allowed_operators:
+            raise InvalidOperatorError(self.operator)

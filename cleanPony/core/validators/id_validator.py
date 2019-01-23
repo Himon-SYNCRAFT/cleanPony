@@ -1,9 +1,10 @@
 from cleanPony.core.validator_base import ValidatorBase
-from typing import Any
 
 
 class IdValidator(ValidatorBase):
-    def _validate(self, request: Any):
+    def _validate(self, *args, **kwargs):
+        request = kwargs.get('request', args[0])
+
         if not hasattr(request, 'id'):
             self._add_error('Id is required')
         elif type(request.id) is not int:

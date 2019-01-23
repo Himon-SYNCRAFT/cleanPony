@@ -1,16 +1,12 @@
 from cleanPony.db.models import db, Product, Title
 from cleanPony.core.entities import Product as ProductEntity
 from cleanPony.db.repositories import ProductRepository
-from pony.orm import set_sql_debug, commit, db_session
+from pony.orm import commit, db_session
 from cleanPony.core.filter import Filter, FilterType
 
 product_id = 1
 product_name = 'product_name'
 product_repository = ProductRepository()
-
-db.bind(provider='sqlite', filename=':memory:')
-db.generate_mapping(create_tables=True)
-set_sql_debug(True)
 
 
 def setup_function():

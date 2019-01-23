@@ -34,3 +34,9 @@ class AuthorizationError(Exception):
 
 class RepositoryException(Exception):
     pass
+
+
+class InvalidEntityError(TypeError):
+    pass
+
+
