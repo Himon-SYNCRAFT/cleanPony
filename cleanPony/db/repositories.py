@@ -1,21 +1,29 @@
-from typing import Type, Set, List, Optional
+from typing import Type, Set, List, Optional, TypeVar, Generic
 from pony.orm import db_session, flush
 
 from cleanPony.core import repositories
-from cleanPony.core.entities import Product
 from cleanPony.core.filter import Filter, FilterType
 from cleanPony.core.repositories import Entity
 from cleanPony.db import models
 from cleanPony.core.exceptions import NotFoundError
+from cleanPony.context import Context
+
+E = TypeVar('E', bound=Entity)
+M = TypeVar('M', bound=models.Entity)
 
 
-class CrudRepository(repositories.CrudRepository):
-    def __init__(self, model_cls: Type[models.Entity], entity_cls: Type[Entity]) -> None:
+class CrudRepository(repositories.CrudRepository, Generic[E, M]):
+    def __init__(
+            self,
+            model_cls: Type[M],
+            entity_cls: Type[E],
+    ) -> None:
         self._Entity = entity_cls
         self._Model = model_cls
+        self._mapper = Context.get_mapper(entity_cls)
 
     @db_session
-    def get(self, entity_id: int) -> Entity:
+    def get(self, entity_id: int) -> E:
         model = self._Model.get(id=entity_id)
 
         if model is None:
@@ -24,7 +32,7 @@ class CrudRepository(repositories.CrudRepository):
         return self._model_to_entity(model)
 
     @db_session
-    def get_or_none(self, entity_id: int) -> Optional[Entity]:
+    def get_or_none(self, entity_id: int) -> Optional[E]:
         model = self._Model.get(id=entity_id)
 
         if model is None:
@@ -33,7 +41,12 @@ class CrudRepository(repositories.CrudRepository):
         return self._model_to_entity(model)
 
     @db_session
-    def find(self, filters: Optional[Set[Filter]] = None, page: Optional[int] = 1, page_size: Optional[int] = 10) -> List[Entity]:
+    def find(
+            self,
+            filters: Optional[Set[Filter]] = None,
+            page: Optional[int] = 1,
+            page_size: Optional[int] = 10
+    ) -> List[E]:
         query = self._Model.select()
 
         if filters is not None:
@@ -45,20 +58,30 @@ class CrudRepository(repositories.CrudRepository):
         return [self._model_to_entity(item) for item in list(query)]
 
     @db_session
-    def find_all(self, filters: Set[Filter]) -> List[Entity]:
+    def find_all(self, filters: Set[Filter]) -> List[E]:
         return self.find(filters, page=None, page_size=None)
 
     @db_session
-    def get_all(self) -> List[Entity]:
+    def get_all(self) -> List[E]:
         return self.find(page=None, page_size=None)
 
     @db_session
-    def get_list(self, page: int = 1, page_size: int = 10):
+    def get_list(self, page: int = 1, page_size: int = 10) -> List[E]:
         return self.find(page=page, page_size=page_size)
 
     @db_session
-    def save(self, entity: Entity) -> Entity:
-        model = self._Model(**entity.to_dict())
+    def save(self, entity: E) -> E:
+        if hasattr(entity, 'id'):
+            model = self._Model.get(id=entity.id)
+
+            if model is None:
+                model = self._entity_to_model(entity)
+            else:
+                model.set(**entity.to_dict())
+
+        else:
+            model = self._entity_to_model(entity)
+
         flush()
         return self._model_to_entity(model)
 
@@ -66,8 +89,11 @@ class CrudRepository(repositories.CrudRepository):
     def delete(self, entity_id: int) -> None:
         self._Model.get(id=entity_id).delete()
 
-    def _model_to_entity(self, model: models.Entity):
-        return self._Entity.from_dict(model.as_dict())
+    def _model_to_entity(self, model: M):
+        return self._mapper.to_entity(model)
+
+    def _entity_to_model(self, entity: E):
+        return self._mapper.to_model(entity)
 
     def _get_model_name(self) -> str:
         return self._Model.__qualname__
@@ -97,8 +123,3 @@ class CrudRepository(repositories.CrudRepository):
                 query = query.filter(lambda e: value in getattr(e, attribute))
 
         return query
-
-
-class ProductRepository(CrudRepository):
-    def __init__(self):
-        super(ProductRepository, self).__init__(model_cls=models.Product, entity_cls=Product)

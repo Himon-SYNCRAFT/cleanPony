@@ -1,7 +1,8 @@
-from cleanPony.core.actions.product.find_products import FindProducts, FindProductsRequest
+from cleanPony.core.actions.product.find_products import FindProducts
 from unittest.mock import Mock
 from cleanPony.core.entities import Product
 from cleanPony.core.filter import Filter
+from cleanPony.core.requests import FindRequest
 
 
 def test_find_products():
@@ -12,7 +13,7 @@ def test_find_products():
     product_repository = Mock()
     product_repository.find.return_value = [Product(id=product_id, name=product_name)]
 
-    request = FindProductsRequest(filters=filters)
+    request = FindRequest(filters=filters)
     action = FindProducts(product_repository)
     product = action.execute(request).data[0]
 

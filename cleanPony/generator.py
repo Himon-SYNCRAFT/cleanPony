@@ -2,6 +2,10 @@ import os
 from cleanPony.core.entities import Entity
 from stringcase import snakecase
 from typing import List, Type
+from inflect import engine
+
+
+inflector = engine()
 
 
 class ActionGenerator:
@@ -16,6 +20,9 @@ class ActionGenerator:
     @property
     def import_path(self) -> str:
         return self._Entity.__module__
+
+    def _pluralize(self, word: str):
+        return inflector.plural(word)
 
     def _write_file(self, file_path: str, content: List[str]):
         if not self._force_rewrite and os.path.exists(file_path):
@@ -36,21 +43,8 @@ class ActionGenerator:
         dir_path = f'./cleanPony/core/actions/{snakecase(self.entity_name)}'
         file_path = f'{dir_path}/{file_name}.py'
 
-        request_name = f'Get{self.entity_name.capitalize()}Request'
-        action_name = f'Get{self.entity_name.capitalize()}'
-
-        request_content =\
-            f"""
-
-@dataclass(frozen=True)
-class {request_name}(RequestBase):
-    id: int
-
-    @staticmethod
-    def from_dict(data: Dict) -> {request_name}:
-        id = data.get('id', None)
-        return {request_name}(id)
-"""
+        request_name = 'IdRequest'
+        action_name = f'Get{self.entity_name}'
 
         action_content =\
             f"""
@@ -67,37 +61,21 @@ class {action_name}(ActionBase):
 
         imports =\
             f"""from __future__ import annotations
-from dataclasses import dataclass
-from typing import Dict
-
 from {self.import_path} import {self.entity_name}
 from cleanPony.core.actions.action_base import ActionBase
 from cleanPony.core.repositories import CrudRepository
 from cleanPony.core.validators.id_validator import IdValidator
-from cleanPony.core.request_base import RequestBase
+from cleanPony.core.requests import {request_name}
 """
-        self._write_file(file_path, [imports, request_content, action_content])
+        self._write_file(file_path, [imports, action_content])
 
     def delete(self):
         file_name = f'delete_{snakecase(self.entity_name)}'
         dir_path = f'./cleanPony/core/actions/{snakecase(self.entity_name)}'
         file_path = f'{dir_path}/{file_name}.py'
 
-        request_name = f'Delete{self.entity_name.capitalize()}Request'
-        action_name = f'Delete{self.entity_name.capitalize()}'
-
-        request_content = \
-            f"""
-
-@dataclass(frozen=True)
-class {request_name}(RequestBase):
-    id: int
-
-    @staticmethod
-    def from_dict(data: Dict) -> {request_name}:
-        id = data.get('id', None)
-        return {request_name}(id)
-"""
+        request_name = 'IdRequest'
+        action_name = f'Delete{self.entity_name}'
 
         action_content = \
             f"""
@@ -114,16 +92,50 @@ class {action_name}(ActionBase):
 
         imports = \
             f"""from __future__ import annotations
-from dataclasses import dataclass
-from typing import Dict
-
 from cleanPony.core.actions.action_base import ActionBase
 from cleanPony.core.repositories import CrudRepository
 from cleanPony.core.validators.id_validator import IdValidator
-from cleanPony.core.request_base import RequestBase
+from cleanPony.core.requests import {request_name}
 """
-        self._write_file(file_path, [imports, request_content, action_content])
+        self._write_file(file_path, [imports, action_content])
+
+    def find(self):
+        name = self.entity_name
+        name_plural = self._pluralize(name)
+
+        file_name = f'find_{snakecase(name_plural)}'
+        dir_path = f'./cleanPony/core/actions/{snakecase(name)}'
+        file_path = f'{dir_path}/{file_name}.py'
+
+        request_name = 'FindRequest'
+        action_name = f'Find{name_plural}'
+
+        action_content = \
+            f"""
+
+class {action_name}(ActionBase):
+    def __init__(self, repository: CrudRepository) -> None:
+        super().__init__()
+        self.repository = repository
+        self._validators = [FilterValidator(), PaginationValidator()]
+
+    def process(self, request: {request_name}) -> None:
+        self.repository.find(request.filters)
+"""
+
+        imports = \
+            f"""from __future__ import annotations
+from cleanPony.core.actions.action_base import ActionBase
+from cleanPony.core.repositories import CrudRepository
+from cleanPony.core.validators.filter_validator import FilterValidator
+from cleanPony.core.validators.pagination_validator import PaginationValidator
+from cleanPony.core.requests import {request_name}
+"""
+        self._write_file(file_path, [imports, action_content])
 
     def generate_all(self):
         self.get()
         self.delete()
+        self.find()
+
+

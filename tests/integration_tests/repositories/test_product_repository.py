@@ -1,12 +1,12 @@
 from cleanPony.db.models import db, Product, Title
 from cleanPony.core.entities import Product as ProductEntity
-from cleanPony.db.repositories import ProductRepository
+from cleanPony.db.repositories import CrudRepository
 from pony.orm import commit, db_session
 from cleanPony.core.filter import Filter, FilterType
 
 product_id = 1
 product_name = 'product_name'
-product_repository = ProductRepository()
+product_repository = CrudRepository(Product, ProductEntity)
 
 
 def setup_function():

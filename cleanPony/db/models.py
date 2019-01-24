@@ -38,3 +38,8 @@ class Title(Entity, ModelMixin):
     id = PrimaryKey(int, auto=True)
     name = Required(str)
     product = Required(Product)
+
+
+class Location(Entity, ModelMixin):
+    id = PrimaryKey(int, auto=True)
+    name = Required(str)

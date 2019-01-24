@@ -1,9 +1,10 @@
 from __future__ import annotations
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, field, asdict, fields
 from typing import List, Optional, Dict
 from datetime import datetime, timedelta
 from decimal import Decimal
 from abc import ABCMeta
+import re
 
 
 @dataclass(init=False)
@@ -16,6 +17,42 @@ class Entity(metaclass=ABCMeta):
 
     @classmethod
     def from_dict(cls, data: Dict):
+        attributes = fields(cls)
+        subclasses = Entity.__subclasses__()
+
+        for attribute in attributes:
+            value: Dict = data.get(attribute.name, None)
+            attribute_type: str = attribute.type
+
+            if value is None:
+                continue
+
+            for subclass in subclasses:
+                if 'Optional' in attribute_type:
+                    attribute_type = attribute_type.replace('Optional', '')
+                    attribute_type = re.search(r'\[(.*)\]', attribute_type).group(1)
+
+                if attribute_type == subclass.__qualname__:
+                    data[attribute.name] = subclass.from_dict(value)
+                    continue
+
+            if 'List' in attribute_type:
+                type_found = None
+
+                for subclass in subclasses:
+                    cls_type = f'List[{subclass.__qualname__}]'
+
+                    if cls_type in attribute_type:
+                        type_found = subclass
+
+                if type_found is not None and issubclass(type_found, Entity):
+                    result = []
+
+                    for item in data[attribute.name]:
+                        result.append(type_found.from_dict(item))
+
+                    data[attribute.name] = result
+
         return cls(**data)
 
 
@@ -182,7 +219,6 @@ class DeliveryOptionType(Entity):
 class DeliveryOption(Entity):
     id: Optional[int] = None
     delivery_option_type: Optional[DeliveryOptionType] = None
-    delivery: Optional[Delivery] = None
     first_piece_cost: float = -1.00
     next_pieces_cost: float = -1.00
     quantity: int = -1
@@ -288,7 +324,7 @@ class Auction(Entity):
 
 @dataclass
 class VertoAttribute(Entity):
+    id: Optional[int] = None
     product: Optional[Product] = None
-    definition_id: Optional[int] = None
     name: Optional[str] = None
     value: Optional[str] = None

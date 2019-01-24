@@ -1,21 +1,8 @@
 from __future__ import annotations
-from dataclasses import dataclass
-from typing import Dict
-
 from cleanPony.core.actions.action_base import ActionBase
 from cleanPony.core.repositories import CrudRepository
 from cleanPony.core.validators.id_validator import IdValidator
-from cleanPony.core.request_base import RequestBase
-
-
-@dataclass(frozen=True)
-class DeleteTitleRequest(RequestBase):
-    id: int
-
-    @staticmethod
-    def from_dict(data: Dict) -> DeleteTitleRequest:
-        id = data.get('id', None)
-        return DeleteTitleRequest(id)
+from cleanPony.core.requests import IdRequest
 
 
 class DeleteTitle(ActionBase):
@@ -24,5 +11,5 @@ class DeleteTitle(ActionBase):
         self.repository = repository
         self._validators = [IdValidator()]
 
-    def process(self, request: DeleteTitleRequest) -> None:
+    def process(self, request: IdRequest) -> None:
         self.repository.delete(request.id)
