@@ -1,13 +1,17 @@
 from __future__ import annotations
 from typing import Dict, Set, List
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from cleanPony.core.filter import Filter
 
 
+@dataclass
 class RequestBase:
     @staticmethod
     def from_dict(data: Dict) -> RequestBase:
         raise NotImplementedError
+
+    def to_dict(self) -> Dict:
+        return asdict(self)
 
 
 @dataclass(frozen=True)

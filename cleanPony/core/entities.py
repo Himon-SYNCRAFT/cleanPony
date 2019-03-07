@@ -3,12 +3,16 @@ from dataclasses import dataclass, field, asdict, fields
 from typing import List, Optional, Dict
 from datetime import datetime, timedelta
 from decimal import Decimal
-from abc import ABCMeta
 import re
 
 
+@dataclass(frozen=True)
+class ValueObject:
+    pass
+
+
 @dataclass(init=False)
-class Entity(metaclass=ABCMeta):
+class Entity:
     def __init__(self, *args, **kwargs):
         pass
 
@@ -21,8 +25,8 @@ class Entity(metaclass=ABCMeta):
         subclasses = Entity.__subclasses__()
 
         for attribute in attributes:
-            value: Dict = data.get(attribute.name, None)
-            attribute_type: str = attribute.type
+            value: Optional[Dict] = data.get(attribute.name, None)
+            attribute_type: str = str(attribute.type)
 
             if value is None:
                 continue
@@ -34,7 +38,6 @@ class Entity(metaclass=ABCMeta):
 
                 if attribute_type == subclass.__qualname__:
                     data[attribute.name] = subclass.from_dict(value)
-                    continue
 
             if 'List' in attribute_type:
                 type_found = None
@@ -70,7 +73,6 @@ class AllegroAccount(Entity):
     refresh_token: Optional[str] = field(default=None, repr=False)
     rest_app_redirect: Optional[str] = None
     is_main: bool = False
-    deliveries: List[DeliveryAllegroData] = field(default_factory=list)
     implied_warranties: List[ImpliedWarranty] = field(default_factory=list)
     return_policies: List[ReturnPolicy] = field(default_factory=list)
     warranties: List[Warranty] = field(default_factory=list)
@@ -105,13 +107,6 @@ class Image(Entity):
 
 
 @dataclass
-class DeliveryAllegroData(Entity):
-    id: Optional[int] = None
-    delivery: Optional[Delivery] = None
-    account: Optional[AllegroAccount] = None
-
-
-@dataclass
 class ImpliedWarranty(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
@@ -129,10 +124,9 @@ class Warranty(Entity):
     name: Optional[str] = None
 
 
-@dataclass
-class Title(Entity):
-    id: Optional[int] = None
-    name: Optional[str] = None
+@dataclass(frozen=True)
+class Title(ValueObject):
+    name: str
 
 
 @dataclass
@@ -201,11 +195,10 @@ class Attribute(Entity):
         self.values = '|'.join(values_string)
 
 
-@dataclass
-class AttributeValue(Entity):
-    id: Optional[int] = None
+@dataclass(frozen=True)
+class AttributeValue(ValueObject):
+    attribute_id: int
     value: Optional[str] = None
-    attribute: Optional[Attribute] = None
 
 
 @dataclass
@@ -216,7 +209,7 @@ class DeliveryOptionType(Entity):
 
 
 @dataclass
-class DeliveryOption(Entity):
+class DeliveryOptionValue(Entity):
     id: Optional[int] = None
     delivery_option_type: Optional[DeliveryOptionType] = None
     first_piece_cost: float = -1.00
@@ -229,8 +222,13 @@ class Delivery(Entity):
     id: Optional[int] = None
     name: Optional[str] = None
     is_updated: bool = False
-    delivery_options: List[DeliveryOption] = field(default_factory=list)
-    allegro_data: List[DeliveryAllegroData] = field(default_factory=list)
+    options: List[DeliveryOptionValue] = field(default_factory=list)
+
+
+@dataclass
+class AllegroDelivery(Entity):
+    id: Optional[str] = None
+    delivery_data: Optional[Delivery] = None
 
 
 @dataclass
@@ -259,9 +257,9 @@ class DescriptionItem(Entity):
     not_for_allegro: bool = False
     sort: Optional[int] = None
     is_description_2: bool = False
+    is_static_block: bool = False
+    is_bundle_item: bool = False
     description_item_type: Optional[DescriptionItemType] = None
-    static_block: Optional[StaticBlock] = None
-    bundle_item: Optional[BundleItem] = None
 
 
 @dataclass

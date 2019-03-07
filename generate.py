@@ -6,5 +6,6 @@ def generate():
         generator = ActionGenerator(cls, force_rewrite=True)
         generator.generate_all()
 
+
 if __name__ == '__main__':
     generate()

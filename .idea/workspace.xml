@@ -2,23 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ded2f89-43d0-49ee-bb31-fb3fc5f35ccc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/danzaw.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/danzaw.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanPony/context.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/context.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/__init__.meta.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/__init__.meta.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/context.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/context.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/__init__.meta.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/__init__.meta.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/actions/action_base.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/actions/action_base.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/entities.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/entities.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/exceptions.data.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/exceptions.data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/exceptions.meta.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/exceptions.meta.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/filter.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/filter.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/paginated_result.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/paginated_result.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/repositories.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/repositories.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/response_base.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/response_base.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/validators/__init__.data.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/validators/__init__.data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/validators/__init__.meta.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/core/validators/__init__.meta.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/db/__init__.meta.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/db/__init__.meta.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/db/models.data.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/db/models.data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/db/models.meta.json" beforeDir="false" afterPath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/db/models.meta.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/db/repositories.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/cleanPony/db/repositories.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/allegro_account/find_allegro_accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/allegro_account/find_allegro_accounts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/attribute/find_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/attribute/find_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/attribute_value/delete_attribute_value.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/attribute_value/find_attribute_values.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/attribute_value/get_attribute_value.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/auction/find_auctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/auction/find_auctions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/auction_type/find_auction_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/auction_type/find_auction_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/base/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/base/get.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/bundle_item/find_bundle_items.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/bundle_item/find_bundle_items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/category/find_categorys.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/category/find_categorys.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/delivery/find_deliverys.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/delivery/find_deliverys.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/delivery_allegro_data/delete_delivery_allegro_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/delivery_allegro_data/find_delivery_allegro_datas.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/delivery_allegro_data/get_delivery_allegro_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/delivery_option/delete_delivery_option.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/delivery_option/find_delivery_options.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/delivery_option/get_delivery_option.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/delivery_option_type/find_delivery_option_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/delivery_option_type/find_delivery_option_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/description_item/find_description_items.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/description_item/find_description_items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/description_item_type/find_description_item_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/description_item_type/find_description_item_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/duration/find_durations.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/duration/find_durations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/image/find_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/image/find_images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/implied_warranty/find_implied_warrantys.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/implied_warranty/find_implied_warrantys.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/location/find_locations.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/location/find_locations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/product/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/product/find_products.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/product/find_products.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/product/get_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/product/get_product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/title/delete_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/title/delete_title.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/title/get_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/title/get_title.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/return_policy/find_return_policys.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/return_policy/find_return_policys.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/static_block/find_static_blocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/static_block/find_static_blocks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/title/delete_title.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/title/find_titles.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/title/get_title.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/verto_attribute/find_verto_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/verto_attribute/find_verto_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/actions/warranty/find_warrantys.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/actions/warranty/find_warrantys.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cleanPony/core/entities.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/entities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanPony/core/filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/filter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanPony/db/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/db/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanPony/db/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/db/repositories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cleanPony/core/requests.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/core/requests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cleanPony/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleanPony/rest/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanPony/rest/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/actions/test_find_products.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/actions/test_find_products.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/actions/test_get_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/actions/test_get_product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/integration_tests/repositories/test_product_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/repositories/test_product_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/integration_tests/rest/product/test_get_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/rest/product/test_get_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,49 +77,46 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cleanPony/context.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#0#23#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tests/integration_tests/repositories/test_location_repositories.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-                  <folding>
-                    <element signature="e#0#50#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/conftest.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" selection-start-line="10" selection-end-line="10" />
-                  <folding>
-                    <element signature="e#0#13#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/tests/integration_tests/repositories/test_product_repository.py">
+            <entry file="file://$PROJECT_DIR$/cleanPony/core/entities.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+                <state relative-caret-position="431">
+                  <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
                   <folding>
-                    <element signature="e#0#50#0" expanded="true" />
+                    <element signature="e#0#34#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/cleanPony/core/repositories.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+                  <folding>
+                    <element signature="e#0#47#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/cleanPony/db/repositories.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/cleanPony/core/filter.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="425">
+                  <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+                  <folding>
+                    <element signature="e#0#44#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -82,35 +126,23 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cleanPony/db/repositories.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-                  <folding>
-                    <element signature="e#0#44#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cleanPony/db/models.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-166">
-                  <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#0#56#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/cleanPony/core/entities.py">
+            <entry file="file://$PROJECT_DIR$/cleanPony/generator.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-170">
-                  <caret line="71" column="3" lean-forward="true" selection-start-line="71" selection-start-column="3" selection-end-line="71" selection-end-column="3" />
+                <state relative-caret-position="607">
+                  <caret line="274" selection-start-line="274" selection-end-line="274" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/cleanPony/core/requests.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
                   <folding>
                     <element signature="e#0#34#0" expanded="true" />
                   </folding>
@@ -159,12 +191,8 @@
         <option value="$PROJECT_DIR$/cleanPony/core/actions/product/get_product.py" />
         <option value="$PROJECT_DIR$/cleanPony/core/repositories.py" />
         <option value="$PROJECT_DIR$/cleanPony/core/validators/filter_validator.py" />
-        <option value="$PROJECT_DIR$/cleanPony/core/filter.py" />
-        <option value="$PROJECT_DIR$/cleanPony/core/requests.py" />
         <option value="$PROJECT_DIR$/cleanPony/core/validators/pagination_validator.py" />
         <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/cleanPony/generator.py" />
-        <option value="$PROJECT_DIR$/generate.py" />
         <option value="$PROJECT_DIR$/tests/entity.py" />
         <option value="$PROJECT_DIR$/cleanPony/rest/routes.py" />
         <option value="$PROJECT_DIR$/tests/test_entities.py" />
@@ -172,7 +200,6 @@
         <option value="$PROJECT_DIR$/tests/actions/test_get_product.py" />
         <option value="$PROJECT_DIR$/tests/integration_tests/repositories/test_product_repository.py" />
         <option value="$PROJECT_DIR$/cleanPony/db/models.py" />
-        <option value="$PROJECT_DIR$/cleanPony/core/entities.py" />
         <option value="$PROJECT_DIR$/cleanPony/db/mappers/mappers_base.py" />
         <option value="$PROJECT_DIR$/cleanPony/db/mappers/location_mapper.py" />
         <option value="$PROJECT_DIR$/cleanPony/core/actions/product/find_products.py" />
@@ -182,14 +209,20 @@
         <option value="$PROJECT_DIR$/conftest.py" />
         <option value="$PROJECT_DIR$/tests/integration_tests/repositories/test_location_repositories.py" />
         <option value="$PROJECT_DIR$/cleanPony/db/repositories.py" />
+        <option value="$PROJECT_DIR$/cleanPony/core/actions/delivery/get_deliveries_for_account.py" />
+        <option value="$PROJECT_DIR$/cleanPony/core/requests.py" />
+        <option value="$PROJECT_DIR$/cleanPony/core/actions/product/save_products.py" />
+        <option value="$PROJECT_DIR$/generate.py" />
+        <option value="$PROJECT_DIR$/cleanPony/generator.py" />
+        <option value="$PROJECT_DIR$/cleanPony/core/filter.py" />
+        <option value="$PROJECT_DIR$/cleanPony/core/entities.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1144" />
-    <option name="y" value="180" />
-    <option name="width" value="1898" />
-    <option name="height" value="1033" />
+    <option name="x" value="-1" />
+    <option name="width" value="1922" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -206,6 +239,24 @@
             <path>
               <item name="cleanPony" type="b2602c69:ProjectViewProjectNode" />
               <item name="cleanPony" type="462c0819:PsiDirectoryNode" />
+              <item name="cleanPony" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cleanPony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cleanPony" type="462c0819:PsiDirectoryNode" />
+              <item name="cleanPony" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cleanPony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cleanPony" type="462c0819:PsiDirectoryNode" />
+              <item name="cleanPony" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cleanPony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cleanPony" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -216,7 +267,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../presto/backend/presto/rest/helpers.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ml" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
@@ -237,7 +288,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in test_location_repositories.py">
+  <component name="RunManager" selected="Python tests.pytest in tests">
     <configuration name="pytest for integration_tests.repositories.test_product_repository.test_get_product" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="cleanPony" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -315,10 +366,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest in tests" />
         <item itemvalue="Python tests.pytest in test_location_repositories.py" />
         <item itemvalue="Python tests.pytest in test_product_repository.py" />
-        <item itemvalue="Python tests.pytest in tests" />
-        <item itemvalue="Python tests.pytest in test_get_product.py (1)" />
         <item itemvalue="Python tests.pytest for integration_tests.repositories.test_product_repository.test_get_product" />
       </list>
     </recent_temporary>
@@ -337,9 +387,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_in_test_product_repository_py - 2019.01.24 at 14h 36m 01s.xml">
-      <configuration name="pytest in test_product_repository.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="pytest_in_test_location_repositories_py - 2019.01.24 at 14h 36m 09s.xml">
       <configuration name="pytest in test_location_repositories.py" configurationId="tests" />
     </history-entry>
@@ -367,9 +414,12 @@
     <history-entry file="pytest_in_test_location_repositories_py - 2019.01.24 at 14h 56m 56s.xml">
       <configuration name="pytest in test_location_repositories.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="pytest_in_tests - 2019.01.25 at 09h 29m 10s.xml">
+      <configuration name="pytest in tests" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1919" y="0" width="1922" height="1081" extended-state="6" />
+    <frame x="-1" y="0" width="1922" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1637704" />
@@ -377,7 +427,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29313928" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29313928" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -411,107 +461,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/exceptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/rest/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/title/get_title">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/validators/id_validator.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/product/get_product.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/request_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../presto/backend/presto/core/actions/filter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/filter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="36" column="58" selection-start-line="36" selection-start-column="58" selection-end-line="36" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/validators/filter_validator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/title/delete_title.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/title/get_title.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/title/find_titles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python3.7/inspect.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
@@ -526,33 +475,6 @@
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="139" selection-start-line="139" selection-end-line="139" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -674,13 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python3.7/dataclasses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5419">
-          <caret line="993" column="4" selection-start-line="993" selection-start-column="4" selection-end-line="993" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/attribute_value/get_attribute_value.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -718,19 +633,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/db/mappers/location_mapper.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/repositories.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/db/mappers/location_mapper.py" />
     <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/product/find_products.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -761,16 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/requests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cleanPony/db/mappers/mapper_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -791,19 +684,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/db/models.py">
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/base/get.py" />
+    <entry file="file://$PROJECT_DIR$/tests/integration_tests/repositories/test_location_repositories.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-166">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conftest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="119">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -811,52 +702,208 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/db/repositories.py">
+    <entry file="file://$PROJECT_DIR$/tests/integration_tests/repositories/test_product_repository.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/integration_tests/repositories/test_location_repositories.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="119">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/context.py">
+    <entry file="file://$PROJECT_DIR$/cleanPony/db/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        <state relative-caret-position="17">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cleanPony/core/entities.py">
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/delivery/get_deliveries_for_account.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="71" column="3" lean-forward="true" selection-start-line="71" selection-start-column="3" selection-end-line="71" selection-end-column="3" />
+        <state relative-caret-position="204">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/product/get_product.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/integration_tests/repositories/test_product_repository.py">
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/paginated_result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/context.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/request_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/validator_base.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/validators/filter_validator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/requests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.7/dataclasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="845">
+          <caret line="186" selection-start-line="186" selection-end-line="186" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.7/typing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="590" column="18" selection-start-line="590" selection-start-column="18" selection-end-line="590" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/delivery/save_deliverys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/category/save_categorys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/product/save_products.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="274" selection-start-line="274" selection-end-line="274" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/actions/product/save_product.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/repositories.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/db/repositories.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanPony/core/entities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
